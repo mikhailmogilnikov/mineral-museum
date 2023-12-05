@@ -14,12 +14,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="ru">
+      <head>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="address=no" />
+        <meta name="theme-color" content="black" />
+      </head>
       <body
-        className={`${inter.className} antialiased text-black dark:text-white bg-white dark:bg-black`}
+        className={`${inter.className} select-none text-black dark:text-white bg-white dark:bg-black`}
       >
         <Providers>
           <Header />
-          <main className="min-h-[calc(100dvh-4rem)] flex flex-col">{children}</main>
+          <main className="min-h-[calc(100vh-4rem)] mx-auto p-5 max-w-7xl flex flex-col pb-10">
+            {children}
+          </main>
           <Footer />
         </Providers>
       </body>

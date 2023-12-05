@@ -1,65 +1,68 @@
 'use client';
 
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { Button } from '@nextui-org/button';
 import {
   Dropdown,
-  DropdownTrigger,
+  DropdownItem,
   DropdownMenu,
   DropdownSection,
-  DropdownItem,
+  DropdownTrigger,
 } from '@nextui-org/dropdown';
-import { Button } from '@nextui-org/button';
+import { Skeleton } from '@nextui-org/skeleton';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import { PiDevicesBold, PiMoonBold, PiSunBold } from 'react-icons/pi';
 
 function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const [selectedKey, setSelectedKey] = useState(theme);
-  let themeIcon;
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [selectedKey, setSelectedKey] = useState(new Set([theme]));
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  useEffect(() => {
+    if (resolvedTheme === 'dark') {
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', '#000000');
+    } else {
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', '#ffffff');
+    }
+  }, [resolvedTheme]);
+
+  if (!mounted) return <Skeleton className="w-10 h-10 rounded-2xl" />;
 
   const previewIconSize = 20;
-
-  switch (theme) {
-    case 'system':
-      themeIcon = <PiDevicesBold size={previewIconSize} />;
-      break;
-    case 'light':
-      themeIcon = <PiSunBold size={previewIconSize} />;
-      break;
-    case 'dark':
-      themeIcon = <PiMoonBold size={previewIconSize} />;
-      break;
-    default:
-      throw new Error('undefined theme');
-  }
-
-  console.log(theme, selectedKey);
 
   return (
     <div>
       <Dropdown backdrop="blur">
         <DropdownTrigger>
-          <Button isIconOnly radius="lg" variant="flat" className="capitalize">
-            {themeIcon}
+          <Button isIconOnly radius="lg" variant="flat">
+            {resolvedTheme === 'light' ? (
+              <PiSunBold size={previewIconSize} />
+            ) : (
+              <PiMoonBold size={previewIconSize} />
+            )}
           </Button>
         </DropdownTrigger>
         <DropdownMenu
-          aria-label="Single selection example"
+          aria-label="Выбор темы оформления"
           variant="flat"
           closeOnSelect={false}
           disallowEmptySelection
           selectionMode="single"
           selectedKeys={selectedKey}
-          onSelectionChange={setSelectedKey}
+          onSelectionChange={(newSelectedKey) => setSelectedKey(newSelectedKey)}
         >
-          <DropdownSection title="Оформление" className="m-0 pt-1 flex flex-col gap-1">
+          <DropdownSection
+            title="Оформление"
+            className="m-0 pt-1 flex flex-col gap-1"
+          >
             <DropdownItem
               key="light"
               onPress={() => setTheme('light')}
