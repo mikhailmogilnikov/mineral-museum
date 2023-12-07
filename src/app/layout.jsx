@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       >
         <Providers>
           <Header />
-          <main className="min-h-[calc(100vh-4rem)] mx-auto p-5 max-w-7xl flex flex-col pb-10">
+          <main className="min-h-[calc(100vh-4rem)] w-full flex flex-col">
             {children}
           </main>
           <Footer />

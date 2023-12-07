@@ -15,18 +15,19 @@ function Header() {
   return (
     <header
       className={clsx(
-        'flex flex-row justify-between bg-white dark:bg-black z-50 sticky top-0 h-16 border-b-1 px-5 transition-colors',
+        'flex flex-row justify-between bg-transparent backdrop-blur-xl z-50 sticky top-0 h-16 border-b-1 px-5 transition-colors',
         {
           'border-transparent': !isScrolled,
           'border-black/[0.15] dark:border-white/[0.15]': isScrolled,
         },
       )}
     >
-      <Link href="/" className="h-full flex items-center gap-5">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white dark:from-black to-transparent z-10" />
+      <Link href="/" className="h-full flex items-center gap-5 z-20">
         <MgriLogo size={38} />
-        <Text tag="h1" className="hidden sm:block" content="Музей минералов" />
+        <Text tag="h1" className="hidden sm:block" content="Минералогический музей" />
       </Link>
-      <div className="h-full flex flex-row gap-16 items-center">
+      <div className="h-full flex flex-row gap-16 items-center z-20">
         <div className="w-56 h-10 hidden md:flex">
           <Search />
         </div>
