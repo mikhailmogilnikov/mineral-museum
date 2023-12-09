@@ -22,10 +22,14 @@ function Header() {
         },
       )}
     >
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white dark:from-black to-transparent z-10" />
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white dark:from-black to-white/30 dark:to-black/30 z-10" />
       <Link href="/" className="h-full flex items-center gap-5 z-20">
         <MgriLogo size={38} />
-        <Text tag="h1" className="hidden sm:block" content="Минералогический музей" />
+        <Text
+          tag="h1"
+          className="hidden sm:block"
+          content="Минералогический музей"
+        />
       </Link>
       <div className="h-full flex flex-row gap-16 items-center z-20">
         <div className="w-56 h-10 hidden md:flex">

@@ -10,7 +10,7 @@ function Catalog() {
           <CatalogItem
             name={item.name}
             description={item.description}
-            icon={item.image}
+            image={item.image}
           />
         </Link>
       ))}

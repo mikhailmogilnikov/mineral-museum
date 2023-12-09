@@ -1,13 +1,13 @@
 import Text from '@/components/primitives/Text.jsx';
 import dataCatalog from '@/testData/testDataCatalog.js';
-import ThreeModelViewer from '../../../components/ui/threeModels/threeModelViewer.jsx';
+import ThreeViewer from '@/components/ui/threeViewers/ThreeViewer.jsx';
 
 export default function CatalogItemPage({ params }) {
   const item = dataCatalog.find((dataItem) => dataItem.id === params.stoneId);
 
   return (
     <>
-      <ThreeModelViewer />
+      <ThreeViewer modelPath={item.modelPath} />
       <div className="mx-auto px-5 py-8 max-w-7xl flex flex-col md:flex-row gap-10">
         <div className="flex flex-col gap-8 flex-shrink-1">
           <Text tag="h1" className="!text-3xl" content={item.name} />
