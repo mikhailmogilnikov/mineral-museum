@@ -1,8 +1,7 @@
 'use client';
 
-import Image from 'next/image.js';
 import {
-  Suspense, useEffect, useRef, useState,
+  useEffect, useRef, useState,
 } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
@@ -10,7 +9,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Progress } from '@nextui-org/progress';
 import Text from '@/components/primitives/Text.jsx';
 
-function ThreeViewer({ modelPath, image, name }) {
+function ThreeViewer({ modelPath }) {
   const containerRef = useRef();
   const rotateModel = false;
   const [scene, setScene] = useState(new THREE.Scene());
