@@ -18,9 +18,10 @@ export default function Head() {
           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
           ym(95833812, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true,
+          webvisor:true
         });`}
       </Script>
       <Metrics />
