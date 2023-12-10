@@ -1,5 +1,5 @@
-import Catalog from '@/components/ui/catalog/Catalog.jsx';
-import Search from '@/components/ui/catalog/Search.jsx';
+import Catalog from '@/entities/catalog/Catalog.jsx';
+import Search from '@/features/Search.jsx';
 
 export default function Home() {
   return (

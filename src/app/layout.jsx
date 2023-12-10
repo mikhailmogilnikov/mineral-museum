@@ -1,8 +1,8 @@
 import { Inter } from 'next/font/google';
+import Footer from '../widgets/Footer.jsx';
+import Header from '../widgets/Header.jsx';
 import './globals.css';
 import Providers from './providers.jsx';
-import Header from '../components/ui/header/Header.jsx';
-import Footer from '../components/ui/footer/Footer.jsx';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] });
 

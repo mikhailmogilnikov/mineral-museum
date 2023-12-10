@@ -6,3 +6,6 @@ test:
 
 lint:
 	bun lint
+
+lint-fix:
+	bun run lint -- --fix
