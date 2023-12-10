@@ -1,5 +1,5 @@
 import dataCatalog from '@/entities/testDataCatalog.js';
-import ThreeModelViewer from '@/entities/threeViewers/ThreeModelViewer.jsx';
+import ThreeModelViewer from '@/entities/threeViewers/threeModelViewer.jsx';
 import Text from '@/shared/primitives/Text.jsx';
 
 export default function CatalogItemPage({ params }) {
@@ -7,7 +7,6 @@ export default function CatalogItemPage({ params }) {
 
   return (
     <>
-      {/* <ThreeViewer modelPath={item.modelPath} /> */}
       <ThreeModelViewer modelPath={item.modelPath} />
       <div className="mx-auto px-5 py-8 max-w-7xl flex flex-col md:flex-row gap-10">
         <div className="flex flex-col gap-8 flex-shrink-1">
