@@ -1,5 +1,5 @@
 import dataCatalog from '@/entities/testDataCatalog.js';
-import ThreeModelViewer from '@/entities/threeViewers/threeModelViewer.jsx';
+import ThreeModelViewer from '@/entities/threeViewers/ThreeModelViewer.jsx';
 import Text from '@/shared/primitives/Text.jsx';
 
 export default function CatalogItemPage({ params }) {

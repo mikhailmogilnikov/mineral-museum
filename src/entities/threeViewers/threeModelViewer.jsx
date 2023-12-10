@@ -4,7 +4,7 @@
 
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useState } from 'react';
-import { Center, OrbitControls } from '@react-three/drei';
+import { Center, OrbitControls, useProgress } from '@react-three/drei';
 import { motion, useAnimation } from 'framer-motion';
 
 import Model from './Model.jsx';
@@ -33,13 +33,15 @@ function ThreeModelViewer({ modelPath }) {
     controlsAnimation.start({ height: newHeight });
   };
 
+  const { progress } = useProgress();
+
   return (
     <div className="relative">
       <motion.div
         className="w-full h-[65vh] flex justify-center items-center border-b-1 border-black/[0.15] dark:border-y-white/[0.15] cursor-grab"
         animate={controlsAnimation}
       >
-        <Suspense fallback={<ModelPreloader />}>
+        <Suspense fallback={<ModelPreloader progress={progress} />}>
           <Canvas
             camera={{
               position: [0, 0, 2],
