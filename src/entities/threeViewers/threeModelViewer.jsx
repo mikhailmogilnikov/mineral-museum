@@ -1,12 +1,8 @@
-/* eslint-disable react/no-unknown-property */
-
 'use client';
 
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useState } from 'react';
-import {
-  Center, OrbitControls, Preload, useProgress,
-} from '@react-three/drei';
+import { Center, OrbitControls, Resize, useProgress } from '@react-three/drei';
 import { motion, useAnimation } from 'framer-motion';
 
 import Model from './Model.jsx';
@@ -44,21 +40,19 @@ function ThreeModelViewer({ modelPath }) {
         animate={controlsAnimation}
       >
         <Suspense fallback={<ModelPreloader progress={progress} />}>
-          <Canvas
-            camera={{
-              position: [0, 0, 2.5],
-            }}
-          >
-            <Center>
-              <Model modelPath={modelPath} />
-            </Center>
+          <Canvas>
+            <Resize scale={4}>
+              <Center>
+                <Model modelPath={modelPath} />
+              </Center>
+            </Resize>
+
             <OrbitControls
               autoRotate={autoRotate}
               enablePan={false}
-              minDistance={1.4}
-              maxDistance={10}
+              minDistance={2.4}
+              maxDistance={20}
             />
-            <Preload all />
           </Canvas>
         </Suspense>
       </motion.div>
