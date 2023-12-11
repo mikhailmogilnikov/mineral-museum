@@ -4,7 +4,9 @@
 
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useState } from 'react';
-import { Center, OrbitControls, useProgress } from '@react-three/drei';
+import {
+  Center, OrbitControls, Preload, useProgress,
+} from '@react-three/drei';
 import { motion, useAnimation } from 'framer-motion';
 
 import Model from './Model.jsx';
@@ -44,7 +46,7 @@ function ThreeModelViewer({ modelPath }) {
         <Suspense fallback={<ModelPreloader progress={progress} />}>
           <Canvas
             camera={{
-              position: [0, 0, 2],
+              position: [0, 0, 2.5],
             }}
           >
             <Center>
@@ -56,11 +58,13 @@ function ThreeModelViewer({ modelPath }) {
               minDistance={1.4}
               maxDistance={10}
             />
+            <Preload all />
           </Canvas>
         </Suspense>
       </motion.div>
       <SettingsBar
         autoRotate={toggleAutoRotate}
+        isAutoRotate={autoRotate}
         fullscreen={toggleContainerHeight}
         isFullscreen={fullscreen}
       />
