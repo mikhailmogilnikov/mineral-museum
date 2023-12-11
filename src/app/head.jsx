@@ -25,6 +25,7 @@ export default function Head() {
         });`}
       </Script>
       <Metrics />
+      <meta name="yandex-verification" content="762d947f19fccd82" />
       {/* Recommended Meta Tags */}
       <meta charSet="utf-8" />
       <meta name="language" content="russian" />
