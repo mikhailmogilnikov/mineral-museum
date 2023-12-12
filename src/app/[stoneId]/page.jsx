@@ -35,7 +35,7 @@ export default function CatalogItemPage({ params }) {
                 <Text tag="h4" className="" content="Категории" />
                 <div className="w-full flex flex-row gap-3 flex-wrap">
                   {item.categories.map((category) => (
-                    <CategoryChip category={category} />
+                    <CategoryChip key={category} category={category} />
                   ))}
                 </div>
               </div>
