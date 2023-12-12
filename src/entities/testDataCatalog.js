@@ -7,6 +7,56 @@ const dataCatalog = [
     image: '/images/fluorite.png',
     modelPath: '/models/fluorite.glb',
     categories: ['Минералы', 'Галогениды', 'Кубическая сингония'],
+    properties: [
+      {
+        title: 'Физические свойства',
+        content: [
+          {
+            propTitle: 'Цвет',
+            propContent:
+              'Белый или бесцветный, фиолетовый, синий, сине-зелёный, жёлтый, коричнево-жёлтый или красный',
+          },
+          {
+            propTitle: 'Цвет черты',
+            propContent: 'Белая',
+          },
+          {
+            propTitle: 'Блеск',
+            propContent: 'Стеклянный',
+          },
+          {
+            propTitle: 'Твердость',
+            propContent: 'Совершенная по {111}',
+          },
+          {
+            propTitle: 'Излом',
+            propContent: 'Ступенчатый',
+          },
+          {
+            propTitle: 'Плотность',
+            propContent: '3,18 г/см³',
+          },
+        ],
+      },
+      {
+        title: 'Кристаллографические свойства',
+        content: [
+          {
+            propTitle: 'Сингония',
+            propContent: 'Кубическая',
+          },
+        ],
+      },
+      {
+        title: 'Оптические свойства',
+        content: [
+          {
+            propTitle: 'Показатель преломления',
+            propContent: '1,433—1,435',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'aragonite',
