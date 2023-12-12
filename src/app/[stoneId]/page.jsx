@@ -4,6 +4,7 @@ import dataCatalog from '@/entities/testDataCatalog.js';
 import Text from '@/shared/primitives/Text.jsx';
 import ThreeViewerFallback from '@/features/preloaders/ThreeViewerFallback.jsx';
 import CategoryChip from '@/features/CategoryChip.jsx';
+import PageContentPreloader from '@/features/preloaders/PageContentPreloader.jsx';
 
 export default function CatalogItemPage({ params }) {
   const item = dataCatalog.find((dataItem) => dataItem.id === params.stoneId);
@@ -20,7 +21,7 @@ export default function CatalogItemPage({ params }) {
     <>
       <DynamicThreeViewer modelPath={item.modelPath} />
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<PageContentPreloader />}>
         <div className="mx-auto px-5 py-8 max-w-7xl flex flex-col md:flex-row gap-10">
           <div className="flex flex-col gap-8 flex-shrink-1">
             <Text tag="h1" className="!text-3xl" content={item.name} />
