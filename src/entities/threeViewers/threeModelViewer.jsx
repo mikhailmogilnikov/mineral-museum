@@ -6,7 +6,7 @@ import { Center, OrbitControls, Resize, useProgress } from '@react-three/drei';
 import { motion, useAnimation } from 'framer-motion';
 
 import Model from './Model.jsx';
-import ModelPreloader from '@/widgets/preloaders/ModelPreloader.jsx';
+import ModelPreloader from '@/features/preloaders/ModelPreloader.jsx';
 import SettingsBar from './SettingsBar.jsx';
 
 function ThreeModelViewer({ modelPath }) {
