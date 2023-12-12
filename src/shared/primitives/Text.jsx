@@ -11,7 +11,8 @@ function Text({ tag = 'p', content = '', className = '' }) {
         'text-md font-semibold': tag === 'h4',
         'text-sm font-medium': tag === 'h5',
         'text-xs': tag === 'p',
-      })}
+      }, ``
+      )}
     >
       {content}
     </Tag>

@@ -10,7 +10,7 @@ function CatalogItem({ name, description, image }) {
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-      className="w-full flex flex-col justify-between aspect-[3/4] rounded-3xl border-1 border-black/[0.15] dark:border-white/[0.15]"
+      className="w-full h-full flex flex-col justify-between rounded-3xl border-1 border-black/[0.15] dark:border-white/[0.15]"
     >
       <div className="w-[90%] aspect-square self-center flex-shrink-1">
         <Image
@@ -18,10 +18,10 @@ function CatalogItem({ name, description, image }) {
           height={200}
           src={image}
           alt={name}
-          className="w-full h-full"
+          className="w-full h-full flex-shrink-1"
         />
       </div>
-      <div className="w-full flex flex-col gap-1 md:gap-2 flex-shrink-0 p-3 sm:p-5">
+      <div className="w-full flex flex-col gap-1 md:gap-2 flex-shrink-0 p-3 pt-0 sm:p-5">
         <Text tag="h4" content={name} />
         <Text
           className="opacity-70 text-xs md:text-sm overflow-hidden text-ellipsis line-clamp-2"

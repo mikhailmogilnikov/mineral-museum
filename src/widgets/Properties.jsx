@@ -2,11 +2,14 @@ import Text from '@/shared/primitives/Text.jsx';
 
 function Properties({ properties }) {
   return (
-    <div className="w-full md:w-96 flex flex-col gap-10 rounded-3xl flex-shrink-0 bg-black/5 dark:bg-white/10 p-6">
+    <div className="w-full md:w-96 flex flex-col gap-10 rounded-3xl flex-shrink-0 bg-black/5 dark:bg-white/[0.08] p-6">
       {properties ? (
         properties.map((propertyCategory) => (
-          <div className="w-full flex flex-col gap-6">
-            <div className="w-full p-3 bg-black/[0.06] dark:bg-white/10 rounded-2xl flex justify-center ">
+          <div
+            key={`category:${propertyCategory.title}`}
+            className="w-full flex flex-col gap-6"
+          >
+            <div className="w-full p-3 bg-black/[0.06] dark:bg-white/[0.07] rounded-2xl flex justify-center ">
               <Text
                 tag="h5"
                 className="font-semibold select-text"
@@ -14,9 +17,12 @@ function Properties({ properties }) {
               />
             </div>
 
-            <div className="w-full flex flex-col gap-4">
+            <div className="w-full flex flex-col gap-4 px-1">
               {propertyCategory.content.map((property) => (
-                <div className="w-full flex flex-row gap-2">
+                <div
+                  key={`property:${property.propTitle}`}
+                  className="w-full flex flex-row gap-2"
+                >
                   <div className="w-[40%] flex flex-shrink-0">
                     <Text
                       tag="h5"
@@ -35,7 +41,7 @@ function Properties({ properties }) {
           </div>
         ))
       ) : (
-        <div />
+        <Text tag='h5' className='opacity-70' content='Свойства отсутствуют' />
       )}
     </div>
   );
