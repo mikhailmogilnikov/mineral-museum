@@ -7,13 +7,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import useScroll from '@/features/hooks/useScroll.jsx';
 import MgriLogo from '@/shared/icons/MgriLogo.jsx';
 import Search from '../features/Search.jsx';
-import ThemeSwitcher from '../shared/ThemeSwitcher.jsx';
 import MenuButton from './menu/MenuButton.jsx';
 import Menu from './menu/Menu.jsx';
+import useThemeSwitch from '@/features/hooks/useThemeSwitch.jsx';
 
 function Header() {
   const scrollDirection = useScroll();
   const [openMenu, setOpenMenu] = useState(false);
+
+  useThemeSwitch();
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
@@ -36,17 +38,18 @@ function Header() {
           damping: 30,
         }}
         className={clsx(
-          'flex flex-row justify-between bg-transparent backdrop-blur-xl z-50 sticky top-0 h-16 px-5 transition-colors border-b-1',
+          'flex flex-row justify-between backdrop-blur-xl z-50 sticky top-0 h-16 px-5 transition-colors border-b-1',
           {
-            'border-transparent': window.scrollY <= 0 && !openMenu,
-            'border-black/[0.15] dark:border-white/[0.15]':
+            'bg-white/40 dark:bg-black/40 border-transparent':
+              window.scrollY <= 0 && !openMenu,
+            'bg-white/40 dark:bg-black/40 border-black/[0.15] dark:border-white/[0.15]':
               window.scrollY > 0 && !openMenu,
-            'bg-white dark:bg-black border-transparent md:border-black/[0.15] md:dark:border-white/[0.15]':
+            'bg-white dark:bg-black border-black/[0.15] dark:border-white/[0.15]':
               openMenu,
           },
         )}
       >
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white dark:from-black to-white/50 dark:to-black/50 z-10" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white dark:from-black to-transparent z-20" />
         <Link
           href="/"
           className="h-full flex items-center gap-[10px] md:gap-5 z-20"
@@ -61,7 +64,6 @@ function Header() {
             <Search />
           </div>
           <div className="h-full flex flex-row gap-4 items-center">
-            <ThemeSwitcher />
             <MenuButton isMenuOpen={openMenu} press={handleOpenMenu} />
           </div>
         </div>

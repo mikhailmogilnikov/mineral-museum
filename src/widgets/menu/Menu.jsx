@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ScrollShadow } from '@nextui-org/scroll-shadow';
+import MenuContent from './MenuContent.jsx';
 
 const initialAnimation =
   window.innerWidth < 640 ? { y: '-100%' } : { x: '100%' };
@@ -18,9 +18,9 @@ function Menu({ isMenuOpen, closeMenu }) {
               stiffness: 200,
               damping: 26,
             }}
-            className="absolute w-[100vw] md:w-[28rem] h-[calc(100dvh-4rem)] top-16 right-0 bg-white dark:bg-black border-b-1 border-l-0 md:border-b-0 md:border-l-1 border-black/[0.15] dark:border-white/[0.15] z-10"
+            className="absolute w-[100vw] md:w-[28rem] h-[calc(100dvh-4rem)] top-16 right-0 bg-white dark:bg-black border-l-0 md:border-l-1 border-black/[0.15] dark:border-white/[0.15] z-10"
           >
-            <ScrollShadow className="w-full flex flex-col gap-5" />
+            <MenuContent />
           </motion.div>
           <motion.button
             type="button"

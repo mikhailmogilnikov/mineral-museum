@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .shadow-base {
+    box-shadow: 0 0 60px 0px rgba(0, 0, 0, 0.15);
+  }
+}
+
 :root {
   --color: #000000;
   --bg-color: #ffffff;
@@ -30,23 +36,30 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-*::-webkit-scrollbar {
-  overflow: overlay;
-  height: 12px;
-  width: 6px;
-  position: absolute;
-  cursor: grab;
+/* Скроллбар */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar) transparent;
 }
 
-*::-webkit-scrollbar-track {
-  overflow: overlay;
-  background-color: transparent;
+/* Стили для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar) transparent;
+}
+
+/* Стили для WebKit (Chrome, Safari) */
+*::-webkit-scrollbar {
+  width: 6px;
 }
 
 *::-webkit-scrollbar-thumb {
-  overflow: overlay;
   background-color: var(--scrollbar);
   border-radius: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
 input:-webkit-autofill,
