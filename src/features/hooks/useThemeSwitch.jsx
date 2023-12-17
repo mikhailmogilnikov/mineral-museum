@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 
 const useThemeSwitch = () => {
   const { resolvedTheme } = useTheme();
-	console.log('test', resolvedTheme)
 
   useEffect(() => {
     if (resolvedTheme === 'dark') {

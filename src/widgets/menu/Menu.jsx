@@ -9,7 +9,7 @@ function Menu({ isMenuOpen, closeMenu }) {
     <AnimatePresence>
       {isMenuOpen && (
         <>
-          <motion.div
+          <motion.menu
             initial={initialAnimation}
             animate={{ y: 0, x: 0 }}
             exit={initialAnimation}
@@ -21,7 +21,7 @@ function Menu({ isMenuOpen, closeMenu }) {
             className="absolute w-[100vw] md:w-[28rem] h-[calc(100dvh-4rem)] top-16 right-0 bg-white dark:bg-black border-l-0 md:border-l-1 border-black/[0.15] dark:border-white/[0.15] z-10"
           >
             <MenuContent />
-          </motion.div>
+          </motion.menu>
           <motion.button
             type="button"
             aria-label="Закрыть меню"
