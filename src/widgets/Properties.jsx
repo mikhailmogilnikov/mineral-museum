@@ -2,7 +2,7 @@ import Text from '@/shared/primitives/Text.jsx';
 
 function Properties({ properties }) {
   return (
-    <div className="w-full md:w-96 flex flex-col gap-10 rounded-3xl flex-shrink-0 bg-white dark:bg-white/[0.08] shadow-base p-6">
+    <div className="w-full md:w-96 h-min flex flex-col gap-10 rounded-3xl flex-shrink-0 bg-white dark:bg-white/[0.08] shadow-base p-6">
       {properties ? (
         properties.map((propertyCategory) => (
           <div

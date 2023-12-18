@@ -1,12 +1,15 @@
-import { Suspense } from 'react';
-import Catalog from '@/entities/catalog/Catalog.jsx';
+import dynamic from 'next/dynamic.js';
 
 export default function Home() {
+  const DynamicCatalog = dynamic(
+    () => import('@/entities/catalog/Catalog.jsx'),
+    {
+      // loading: () => <HeaderPreloader />,
+    },
+  );
   return (
-    <Suspense fallback={null}>
-      <div className="mx-auto px-5 py-7 max-w-7xl flex flex-col gap-10">
-        <Catalog />
-      </div>
-    </Suspense>
+    <div className="mx-auto px-5 py-7 max-w-7xl flex flex-col gap-10">
+      <DynamicCatalog />
+    </div>
   );
 }

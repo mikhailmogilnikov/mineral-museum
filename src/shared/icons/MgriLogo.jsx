@@ -1,10 +1,10 @@
 function MgriLogo({ size }) {
   return (
     <svg
-      aria-valuetext="МГРИ"
+      aria-labelledby="Логотип МГРИ"
       width={size}
       height={size}
-      className='flex-shrink-0'
+      className="flex-shrink-0"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       x="0px"

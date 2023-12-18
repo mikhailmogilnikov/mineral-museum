@@ -13,10 +13,10 @@ import Menu from './menu/Menu.jsx';
 import useThemeSwitch from '@/features/hooks/useThemeSwitch.jsx';
 
 function Header() {
+  useThemeSwitch();
+
   const scrollDirection = useScroll();
   const [openMenu, setOpenMenu] = useState(false);
-
-  useThemeSwitch();
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
@@ -80,11 +80,10 @@ function Header() {
                 Минералогический музей
               </h1>
             </Link>
-            <div className="h-full flex flex-row gap-16 items-center z-20">
-              <div className="h-full flex flex-row gap-4 items-center">
-                <Search closeMenu={handleCloseMenu} />
-                <MenuButton isMenuOpen={openMenu} press={handleOpenMenu} />
-              </div>
+
+            <div className="h-full flex flex-row gap-4 items-center z-20">
+              <Search closeMenu={handleCloseMenu} />
+              <MenuButton isMenuOpen={openMenu} press={handleOpenMenu} />
             </div>
 
             <Menu closeMenu={handleCloseMenu} isMenuOpen={openMenu} />
