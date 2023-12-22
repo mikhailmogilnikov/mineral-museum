@@ -11,7 +11,7 @@ export default function CatalogItemPage({ params }) {
   const item = dataCatalog.find((dataItem) => dataItem.id === params.stoneId);
 
   const DynamicThreeViewer = dynamic(
-    () => import('@/entities/threeViewers/threeModelViewer.jsx'),
+    () => import('@/entities/threeViewers/ThreeModelViewer.jsx'),
     {
       ssr: false,
       loading: () => <ThreeViewerFallback />,

@@ -41,7 +41,7 @@ function ThreeModelViewer({ modelPath }) {
       >
         <Suspense fallback={<ModelPreloader progress={progress} />}>
           <Canvas>
-            <Resize scale={4}>
+            <Resize scale={5}>
               <Center>
                 <Model modelPath={modelPath} />
               </Center>
